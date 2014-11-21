@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RequireJS Loader Plugin: Global</title>
+</head>
+<body>
+    <h1>RequireJS Loader Plugin: Global</h1>
+
+    <p>
+        It allows to require global variables thus making dependencies on globals explicit.
+    </p>
+
+    <script src="../bower_components/requirejs/require.js"></script>
+
+    <script>
+        require.config({
+            paths: {
+                global: '../sources/global'
+            }
+        });
+
+        require([
+            'global!window.alert',
+            'global!setTimeout'
+        ], function (alert, setTimeout) {
+            setTimeout(function () {
+                alert('Alerting to through local variable!');
+            }, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RequireJS Loader Plugin: Global</title>
+</head>
+<body>
+    <h1>RequireJS Loader Plugin: Global - Mocking</h1>
+
+    <p>
+        It allows to require global variables thus making dependencies on globals explicit. In addition it provides convinient way of mocking globals for unit testing.
+    </p>
+
+    <script src="../bower_components/requirejs/require.js"></script>
+
+    <script>
+        require.config({
+            paths: {
+                global: '../sources/global'
+            },
+
+            map: {
+                '*': {
+                    'JSON': 'JSONMock'
+                }
+            }
+        });
+
+
+        var JSONMock = {
+            strinfigy: function () {
+                alert('Stringifying object!');
+            }
+        };
+
+
+        require([
+            'global!JSON'
+        ], function (JSON) {
+            JSON.strinfigy({
+                hello: 'world'
+            });
+        });
+    </script>
+</body>
+</html>

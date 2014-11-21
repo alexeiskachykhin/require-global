@@ -18,5 +18,8 @@
     "**/.*",
     "node_modules",
     "bower_components"
-  ]
+  ],
+  "devDependencies": {
+    "requirejs": "~2.1.15"
+  }
 }
