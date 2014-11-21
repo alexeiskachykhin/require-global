@@ -1,0 +1,22 @@
+{
+  "name": "require-global",
+  "version": "0.1.0",
+  "homepage": "https://github.com/alexeiskachykhin/require-global",
+  "authors": [
+    "Alexei Skachykhin <alexei.skachykhin@live.com>"
+  ],
+  "description": "RequireJS loader plugin that allows to require global variables thus making dependencies on globals explicit.",
+  "main": "sources/global.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "requirejs"
+  ],
+  "license": "GPL-2.0",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}
