@@ -86,8 +86,13 @@ define(function () {
             onLoad(null);
         }
         else {
-            var value = resolve(name);
-            onLoad(value);
+            try {
+                var value = resolve(name);
+                onLoad(value);
+            }
+            catch (e) {
+                onLoad.error(e);
+            }
         }
     }
 
