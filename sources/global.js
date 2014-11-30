@@ -18,6 +18,8 @@ define(function () {
             referenceTarget = resolveReference(referenceTarget, propertyName, propertyIndex);
         }
 
+        checkReferentialSafity(propertyNames);
+
         return referenceTarget;
     }
 
@@ -54,6 +56,25 @@ define(function () {
     function isUnresolvableReference(referenceBase) {
         return (referenceBase == null);
     }
+
+
+    function checkReferentialSafity(propertyNames) {
+        var lastPropertyName = propertyNames[propertyNames.length - 1];
+
+        if (lastPropertyName === 'eval') {
+            printWarning('Indirect eval calls have different runtime bahvior (http://www.ecma-international.org/ecma-262/5.1/#sec-10.4.2).');
+        }
+    }
+
+
+    function printWarning(message) {
+        if (!global.console || !global.console.warn) {
+            return;
+        }
+
+        global.console.warn('Require Global: ', message);
+    }
+
 
 
     function load(name, localRequire, onLoad, config) {
