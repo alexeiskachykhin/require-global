@@ -42,7 +42,7 @@ define(function () {
     function getReferenceBase(referenceTarget, propertyName, propertyIndex) {
         if (propertyIndex === 0) {
             // Emulate behavior of unresolvable references (http://ecma-international.org/ecma-262/5.1/#sec-8.7),
-            // thus minimazing impact on semantics of a program when swithing from global variables to Require Global.
+            // thus minimazing impact on semantics of a program when switching from global variables to Require Global.
             if (propertyName in global) {
                 return global;
             }
