@@ -29,10 +29,10 @@ define(function () {
 
         if (isUnresolvableReference(referenceBase)) {
             if (propertyIndex === 0) {
-                throw new ReferenceError('Require Global: ' + propertyName + ' is not defined.');
+                throw new ReferenceError(makeLibraryString(propertyName + ' is not defined.'));
             }
             else {
-                throw new TypeError('Require Global: Can\'t read ' + propertyName + ' of ' + referenceTarget + '.');
+                throw new TypeError(makeLibraryString('Can\'t read ' + propertyName + ' of ' + referenceTarget + '.'));
             }
         }
 
@@ -67,12 +67,16 @@ define(function () {
     }
 
 
-    function printWarning(message) {
+    function printWarning(s) {
         if (!global.console || !global.console.warn) {
             return;
         }
 
-        global.console.warn('Require Global: ', message);
+        global.console.warn(makeLibraryString(s));
+    }
+
+    function makeLibraryString(s) {
+        return ('Require Global: ' + s);
     }
 
 
