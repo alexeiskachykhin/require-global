@@ -26,7 +26,7 @@ define(function () {
             referenceTarget = resolveReference(referenceTarget, propertyName, propertyIndex);
         }
 
-        checkReferentialSafity(propertyNames);
+        checkReferentialSafety(referenceTarget);
 
         return referenceTarget;
     }
@@ -106,13 +106,11 @@ define(function () {
      * Checks for undesirable or surprising behavior of required object and if so, produces warnings.
      * 
      * @function
-     * @param {string[]} propertyNames - Array of components of a property access expression.
+     * @param referenceTarget - Object obtained with expression resolution.
      */
-    function checkReferentialSafity(propertyNames) {
-        var lastPropertyName = propertyNames[propertyNames.length - 1];
-
-        if (lastPropertyName === 'eval') {
-            printWarning('Indirect eval calls have different runtime bahvior (http://www.ecma-international.org/ecma-262/5.1/#sec-10.4.2).');
+    function checkReferentialSafety(referenceTarget) {
+        if (referenceTarget === global.eval) {
+            printWarning('Indirect eval calls have unobvious runtime behavior (http://www.ecma-international.org/ecma-262/5.1/#sec-10.4.2).');
         }
     }
 
