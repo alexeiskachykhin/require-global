@@ -14,9 +14,9 @@ define(function () {
      * @param {string} expression - Property access expression in dot notation.
      * @returns Object obtained as the result of traversal of property access expression.
      */
-    function resolve(expression) {
+    function resolveExpression(expression) {
         var referenceTarget;
-        var propertyNames = expression.split('.');
+        var propertyNames = parseExpression(expression);
         
         for (var propertyIndex = 0;
             propertyIndex < propertyNames.length;
@@ -29,6 +29,17 @@ define(function () {
         checkReferentialSafity(propertyNames);
 
         return referenceTarget;
+    }
+
+    /**
+     * Parses property access expression in dot notation into individual components.
+     * 
+     * @function
+     * @param {string} expression - Property access expression in dot notation.
+     * @returns {string[]} Array of a property access expression components.
+     */
+    function parseExpression(expression) {
+        return expression.split('.');
     }
 
 
@@ -138,7 +149,7 @@ define(function () {
         }
         else {
             try {
-                var value = resolve(name);
+                var value = resolveExpression(name);
                 onLoad(value);
             }
             catch (e) {
