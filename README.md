@@ -16,7 +16,7 @@ bower install --save require-global
 ```javascript
 require.config({
     paths : {
-        //create alias to plugin (not needed if plugin is on the baseUrl)
+        // Create alias to plugin (not needed if plugin is on the baseUrl)
         global: 'bower_components/require-global/sources/global'
     }
 });
@@ -36,7 +36,7 @@ Also `require-global` can be used as mocking mechanism for unit testing:
 ```javascript
 require.config({
     paths : {
-        //create alias to plugin (not needed if plugin is on the baseUrl)
+        // Create alias to plugin (not needed if plugin is on the baseUrl)
         global: 'bower_components/require-global/sources/global'
     },
     
