@@ -149,12 +149,21 @@ define(function () {
             onLoad(null);
         }
         else {
+            var value;
+            var error;
+
             try {
-                var value = resolveExpression(name);
-                onLoad(value);
+                value = resolveExpression(name);
             }
             catch (e) {
-                onLoad.error(e);
+                error = e;
+            }
+
+            if (!error) {
+                onLoad(value);
+            }
+            else {
+                onLoad.error(error);
             }
         }
     }
