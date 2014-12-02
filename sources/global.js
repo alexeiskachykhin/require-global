@@ -6,6 +6,14 @@ define(function () {
     var global = (0, eval)('this');
 
 
+
+    /**
+     * Traverses property access expression in order to obtain a value without executing this expression.
+     *
+     * @function
+     * @param {string} expression - Property access expression in dot notation.
+     * @returns Object obtained as the result of traversal of property access expression.
+     */
     function resolve(expression) {
         var referenceTarget;
         var propertyNames = expression.split('.');
@@ -24,6 +32,15 @@ define(function () {
     }
 
 
+    /**
+     * Follows a reference specified with components similar to ECMAScript 5 reference components.
+     *
+     * @function
+     * @param referenceTarget - Object to follow when resolving a reference.
+     * @param {string} propertyName - Name of a property to resolve.
+     * @param {number} propertyIndex - Index of a component of a property access expression.
+     * @returns Object obtained as the result of reference resolution.
+     */
     function resolveReference(referenceTarget, propertyName, propertyIndex) {
         var referenceBase = getReferenceBase(referenceTarget, propertyName, propertyIndex);
 
@@ -39,6 +56,15 @@ define(function () {
         return referenceBase[propertyName];
     }
 
+    /**
+     * Deduces base component of a reference.
+     * 
+     * @function
+     * @param referenceTarget - Object to follow when resolving a reference.
+     * @param {string} propertyName - Name of a property to resolve.
+     * @param {number} propertyIndex - Index of a component of a property access expression.
+     * @returns Base component of a reference.
+     */
     function getReferenceBase(referenceTarget, propertyName, propertyIndex) {
         if (propertyIndex === 0) {
             // Emulate behavior of unresolvable references (http://ecma-international.org/ecma-262/5.1/#sec-8.7),
@@ -52,12 +78,25 @@ define(function () {
 
         return referenceTarget;
     }
-
+    
+    /**
+     * Determines whether reference can be resolved.
+     *      Note: Algorithm is based on (http://ecma-international.org/ecma-262/5.1/#sec-8.7).
+     * 
+     * @function
+     * @param referenceBase - Base component of a reference.
+     * @returns {boolean} Is reference can't be resolved.
+     */
     function isUnresolvableReference(referenceBase) {
         return (referenceBase == null);
     }
 
-
+    /**
+     * Checks for undesirable or surprising behavior of required object and if so, produces warnings.
+     * 
+     * @function
+     * @param {string[]} propertyNames - Array of components of a property access expression.
+     */
     function checkReferentialSafity(propertyNames) {
         var lastPropertyName = propertyNames[propertyNames.length - 1];
 
@@ -67,6 +106,12 @@ define(function () {
     }
 
 
+    /**
+     * Prints a message to console in a cross-browser manner.
+     * 
+     * @function
+     * @param {string} s - String to print.
+     */
     function printWarning(s) {
         if (!global.console || !global.console.warn) {
             return;
@@ -75,6 +120,12 @@ define(function () {
         global.console.warn(makeLibraryString(s));
     }
 
+    /**
+     * Amends string with library specific prefix.
+     * 
+     * @function
+     * @param {string} s - String to amend.
+     */
     function makeLibraryString(s) {
         return ('Require Global: ' + s);
     }
