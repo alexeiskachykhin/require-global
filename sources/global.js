@@ -109,7 +109,10 @@ define(function () {
      * @param referenceTarget - Object obtained with expression resolution.
      */
     function checkReferentialSafety(referenceTarget) {
-        if (referenceTarget === global.eval) {
+        if (referenceTarget === global) {
+            printWarning('Requiring global object invalidates advantages of Require Global. Consider more granular requiring.')
+        }
+        else if (referenceTarget === global.eval) {
             printWarning('Indirect eval calls have unobvious runtime behavior (http://www.ecma-international.org/ecma-262/5.1/#sec-10.4.2).');
         }
     }
