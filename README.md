@@ -48,7 +48,7 @@ require.config({
 });
 
 var JSONMock = {
-    strinfigy: function () {
+    stringify: function () {
         alert('Stringifying object!');
     }
 };
@@ -56,7 +56,7 @@ var JSONMock = {
 require([
     'global!JSON'
 ], function (JSON) {
-    JSON.strinfigy({
+    JSON.stringify({
         hello: 'world'
     }); // It will call mocked implementation of JSON.
 });
