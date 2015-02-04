@@ -20,6 +20,8 @@
     "bower_components"
   ],
   "devDependencies": {
-    "requirejs": "~2.1.15"
+    "requirejs": "~2.1.15",
+    "jasmine-core": "~2.2.1",
+    "jasmine-reporters": "~2.0.3"
   }
 }

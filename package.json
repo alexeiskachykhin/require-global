@@ -1,0 +1,39 @@
+{
+    "name": "require-global",
+    "version": "0.1.0",
+    "description": "RequireJS loader plugin that allows to require global variables thus making dependencies on globals explicit.",
+    "main": "sources/global.js",
+    "directories": {
+        "example": "examples"
+    },
+    "scripts": {
+        "test": "gulp test"
+    },
+    "testling": {
+        "html": "tests/runner.html?testling=true",
+        "browsers": [
+            "ie/6..latest",
+            "chrome/22..latest",
+            "firefox/16..latest",
+            "safari/latest",
+            "opera/11.0..latest",
+            "iphone/6",
+            "ipad/6",
+            "android-browser/latest"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alexeiskachykhin/require-global.git"
+    },
+    "keywords": [
+        "gulpplugin",
+        "gulp"
+    ],
+    "author": "Alexei Skachykhin",
+    "license": "GPL-2.0",
+    "bugs": {
+        "url": "https://github.com/alexeiskachykhin/require-global/issues"
+    },
+    "homepage": "https://github.com/alexeiskachykhin/require-global"
+}

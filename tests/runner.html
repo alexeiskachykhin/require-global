@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <title>Require Global: Tests</title>
+
+    <!-- jasmine -->
+    <link rel="stylesheet" href="../bower_components/jasmine-core/lib/jasmine-core/jasmine.css" />
+    <script src="../bower_components/jasmine-core/lib/jasmine-core/jasmine.js"></script>
+    <script src="../bower_components/jasmine-core/lib/jasmine-core/jasmine-html.js"></script>
+    <script src="../bower_components/jasmine-core/lib/jasmine-core/boot.js"></script>
+    <script src="../bower_components/jasmine-reporters/src/tap_reporter.js"></script>
+
+    <!-- specs -->
+    <script src="main.js"></script>
+</head>
+<body>
+    <script type="text/javascript">
+        (function () {
+            var testlingParameter = /[?&]testling=true/.test(location.href);
+
+            if (testlingParameter) {
+                var jasmineEnv = jasmine.getEnv();
+                jasmineEnv.addReporter(new jasmineReporters.TapReporter()); // For Testling CI
+            }
+        }());
+    </script>
+</body>
+</html>

@@ -85,4 +85,3 @@ Internaly plugin parses property access expression and resolves it by traversing
 
 - Add error handling
 - Add linting & unit tests
-- Publish to bower registry
