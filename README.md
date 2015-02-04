@@ -3,6 +3,9 @@ require-global
 
 [RequireJS](http://requirejs.org) loader plugin that allows to require global variables thus making dependencies on globals explicit.
 
+[![browser support](https://ci.testling.com/alexeiskachykhin/require-global.png)
+](https://ci.testling.com/alexeiskachykhin/require-global)
+
 ## Install
 
 You can use [bower](http://bower.io/) to install it easily:
