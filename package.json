@@ -1,6 +1,6 @@
 {
     "name": "require-global",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "description": "RequireJS loader plugin that allows to require global variables thus making dependencies on globals explicit.",
     "main": "sources/global.js",
     "directories": {
