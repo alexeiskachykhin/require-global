@@ -6,9 +6,6 @@
     "directories": {
         "example": "examples"
     },
-    "scripts": {
-        "test": "gulp test"
-    },
     "testling": {
         "html": "tests/runner.html?testling=true",
         "browsers": [
