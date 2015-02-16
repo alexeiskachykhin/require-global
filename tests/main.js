@@ -1,7 +1,7 @@
 describe('require-global', function () {
     'use strict';
 
-    var require = requirejs.config({
+    require.config({
         baseUrl: '../sources',
         urlArgs: 'now=' + Date.now()
     });
