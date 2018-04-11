@@ -86,7 +86,7 @@ Internaly plugin parses property access expression and resolves it by traversing
 Additionaly, plugin does not try to validate syntactic correctnes of an expression for two reasons. First, such process can become quite error prone due to excessive amount of rules the are needed to be checked against (explained in [this article](https://mathiasbynens.be/notes/javascript-identifiers)). Second, we are not defining variables here, we are referencing existing variables/properties so mistakes result in error or undefined values that are quite easy to identify.
 
 
-##Roadmap
+## Roadmap
 
 - Add error handling
 - Add linting
